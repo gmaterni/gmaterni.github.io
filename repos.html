@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repository - Giuseppe Materni</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #121212;
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 1rem;
+      color: #bb86fc;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .header .divider {
+      width: 60px;
+      height: 3px;
+      background: #bb86fc;
+      border-radius: 2px;
+      margin: 16px auto 0;
+    }
+
+    /* Back button */
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #bb86fc;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #ce93d8;
+      text-decoration: underline;
+    }
+
+    /* Stats */
+    .stats {
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+
+    /* Repository Card */
+    .repo-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .repo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .repo-name {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .repo-name a {
+      color: #bb86fc;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .repo-name a:hover {
+      color: #ce93d8;
+      text-decoration: underline;
+    }
+
+    .repo-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .repo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .repo-link.github-link {
+      background: #2a2a2a;
+      color: #e0e0e0;
+      border: 1px solid #444;
+    }
+
+    .repo-link.github-link:hover {
+      background: #333;
+      transform: scale(1.03);
+    }
+
+    .repo-link.pages-link {
+      background: #bb86fc;
+      color: #121212;
+    }
+
+    .repo-link.pages-link:hover {
+      background: #ce93d8;
+      transform: scale(1.03);
+    }
+
+    .repo-link.no-pages {
+      background: #2a2a2a;
+      color: #666;
+      border: 1px solid #333;
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: #2a2a2a;
+      color: #888;
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    .badge.pages-on {
+      background: #1b5e20;
+      color: #a5d6a7;
+    }
+
+    .badge.pages-off {
+      background: #4a1a1a;
+      color: #ef9a9a;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .footer a {
+      color: #bb86fc;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 12px;
+      }
+      .header h1 {
+        font-size: 1.5rem;
+      }
+      .repo-card {
+        padding: 16px;
+      }
+      .repo-links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <a href="index.html" class="back-link">&larr; Torna alla home</a>
+      <h1>Repository GitHub</h1>
+      <div class="subtitle">gmaterni</div>
+      <div class="divider"></div>
+    </div>
+
+    <div class="stats">
+      <span id="repo-stats">Caricamento...</span>
+    </div>
+
+    <div id="repos-list">
+      <!-- I repository verranno caricati qui -->
+    </div>
+
+    <div class="footer">
+      <a href="https://gmaterni.github.io/">gmaterni.github.io</a> &mdash; powered by GitHub Pages
+    </div>
+
+  </div>
+
+  <script>
+    // Lista dei repository con i dati raccolti
+    const repos = [
+      { name: "ct30",         hasPages: true,  pagesUrl: "https://gmaterni.github.io/ct30/",         githubUrl: "https://github.com/gmaterni/ct30" },
+      { name: "gmaterni.github.io", hasPages: true, pagesUrl: "https://gmaterni.github.io/",         githubUrl: "https://github.com/gmaterni/gmaterni.github.io" },
+      { name: "hub",          hasPages: true,  pagesUrl: "https://gmaterni.github.io/hub/",          githubUrl: "https://github.com/gmaterni/hub" },
+      { name: "ipotesi",      hasPages: true,  pagesUrl: "https://gmaterni.github.io/ipotesi/",      githubUrl: "https://github.com/gmaterni/ipotesi" },
+      { name: "narnirep",     hasPages: true,  pagesUrl: "https://gmaterni.github.io/narnirep/",     githubUrl: "https://github.com/gmaterni/narnirep" },
+      { name: "prodigi",      hasPages: true,  pagesUrl: "https://gmaterni.github.io/prodigi/",      githubUrl: "https://github.com/gmaterni/prodigi" },
+      { name: "ragindex",     hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragindex/",     githubUrl: "https://github.com/gmaterni/ragindex" },
+      { name: "ragquery",     hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragquery/",     githubUrl: "https://github.com/gmaterni/ragquery" },
+      { name: "ragtext",      hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragtext/",      githubUrl: "https://github.com/gmaterni/ragtext" },
+      { name: "teimed",       hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed" },
+      { name: "teimed_flori", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed_flori" },
+      { name: "teixml2html",  hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teixml2html" },
+      { name: "teixml2html_flori", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teixml2html_flori" },
+      { name: "ula",          hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/ula" },
+      { name: "wwwanalyzer",  hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/wwwanalyzer" }
+    ];
+
+    function renderRepos() {
+      const list = document.getElementById('repos-list');
+      const stats = document.getElementById('repo-stats');
+
+      const total = repos.length;
+      const withPages = repos.filter(r => r.hasPages).length;
+      stats.textContent = `\u24d8 ${total} repository di cui ${withPages} con GitHub Pages attivo`;
+
+      list.innerHTML = '';
+
+      // Prima quelli con Pages, poi gli altri
+      const sorted = [...repos].sort((a, b) => {
+        if (a.hasPages && !b.hasPages) return -1;
+        if (!a.hasPages && b.hasPages) return 1;
+        return a.name.localeCompare(b.name);
+      });
+
+      sorted.forEach(repo => {
+        const card = document.createElement('div');
+        card.className = 'repo-card';
+
+        const badge = repo.hasPages
+          ? '<span class="badge pages-on">Pages ✓</span>'
+          : '<span class="badge pages-off">Pages ✗</span>';
+
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'repo-name';
+        nameDiv.innerHTML = `<a href="${repo.githubUrl}" target="_blank" rel="noopener">${repo.name}</a> ${badge}`;
+
+        const linksDiv = document.createElement('div');
+        linksDiv.className = 'repo-links';
+
+        // Link GitHub
+        const githubLink = document.createElement('a');
+        githubLink.href = repo.githubUrl;
+        githubLink.target = '_blank';
+        githubLink.rel = 'noopener';
+        githubLink.className = 'repo-link github-link';
+        githubLink.textContent = 'GitHub';
+        linksDiv.appendChild(githubLink);
+
+        // Link GitHub Pages (se presente)
+        if (repo.hasPages && repo.pagesUrl) {
+          const pagesLink = document.createElement('a');
+          pagesLink.href = repo.pagesUrl;
+          pagesLink.target = '_blank';
+          pagesLink.rel = 'noopener';
+          pagesLink.className = 'repo-link pages-link';
+          pagesLink.textContent = '\u{1f517} GitHub Pages';
+          linksDiv.appendChild(pagesLink);
+        } else {
+          const noPages = document.createElement('span');
+          noPages.className = 'repo-link no-pages';
+          noPages.textContent = 'Pages non disponibile';
+          linksDiv.appendChild(noPages);
+        }
+
+        card.appendChild(nameDiv);
+        card.appendChild(linksDiv);
+        list.appendChild(card);
+      });
+    }
+
+    renderRepos();
+  </script>
+
+</body>
+</html>
