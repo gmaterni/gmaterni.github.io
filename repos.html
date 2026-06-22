@@ -113,6 +113,21 @@
       text-decoration: underline;
     }
 
+    .repo-desc {
+      font-size: 0.9rem;
+      color: #b0b0b0;
+      line-height: 1.5;
+      margin: 2px 0 6px 0;
+      padding-left: 12px;
+      border-left: 3px solid #bb86fc;
+      font-style: italic;
+    }
+
+    .repo-desc.empty {
+      color: #555;
+      font-style: normal;
+    }
+
     .repo-links {
       display: flex;
       flex-wrap: wrap;
@@ -169,6 +184,7 @@
       color: #888;
       display: inline-block;
       margin-left: 8px;
+      vertical-align: middle;
     }
 
     .badge.pages-on {
@@ -240,23 +256,23 @@
   </div>
 
   <script>
-    // Lista dei repository con i dati raccolti
+    // Lista dei repository con i dati raccolti da GitHub
     const repos = [
-      { name: "ct30",         hasPages: true,  pagesUrl: "https://gmaterni.github.io/ct30/",         githubUrl: "https://github.com/gmaterni/ct30" },
-      { name: "gmaterni.github.io", hasPages: true, pagesUrl: "https://gmaterni.github.io/",         githubUrl: "https://github.com/gmaterni/gmaterni.github.io" },
-      { name: "hub",          hasPages: true,  pagesUrl: "https://gmaterni.github.io/hub/",          githubUrl: "https://github.com/gmaterni/hub" },
-      { name: "ipotesi",      hasPages: true,  pagesUrl: "https://gmaterni.github.io/ipotesi/",      githubUrl: "https://github.com/gmaterni/ipotesi" },
-      { name: "narnirep",     hasPages: true,  pagesUrl: "https://gmaterni.github.io/narnirep/",     githubUrl: "https://github.com/gmaterni/narnirep" },
-      { name: "prodigi",      hasPages: true,  pagesUrl: "https://gmaterni.github.io/prodigi/",      githubUrl: "https://github.com/gmaterni/prodigi" },
-      { name: "ragindex",     hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragindex/",     githubUrl: "https://github.com/gmaterni/ragindex" },
-      { name: "ragquery",     hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragquery/",     githubUrl: "https://github.com/gmaterni/ragquery" },
-      { name: "ragtext",      hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragtext/",      githubUrl: "https://github.com/gmaterni/ragtext" },
-      { name: "teimed",       hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed" },
-      { name: "teimed_flori", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed_flori" },
-      { name: "teixml2html",  hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teixml2html" },
-      { name: "teixml2html_flori", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teixml2html_flori" },
-      { name: "ula",          hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/ula" },
-      { name: "wwwanalyzer",  hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/wwwanalyzer" }
+      { name: "ct30",              desc: "",                                   hasPages: true,  pagesUrl: "https://gmaterni.github.io/ct30/",         githubUrl: "https://github.com/gmaterni/ct30" },
+      { name: "gmaterni.github.io", desc: "",                                 hasPages: true,  pagesUrl: "https://gmaterni.github.io/",              githubUrl: "https://github.com/gmaterni/gmaterni.github.io" },
+      { name: "hub",               desc: "",                                  hasPages: true,  pagesUrl: "https://gmaterni.github.io/hub/",          githubUrl: "https://github.com/gmaterni/hub" },
+      { name: "ipotesi",           desc: "Periodico",                         hasPages: true,  pagesUrl: "https://gmaterni.github.io/ipotesi/",      githubUrl: "https://github.com/gmaterni/ipotesi" },
+      { name: "narnirep",          desc: "Atti del Comune di Narni",          hasPages: true,  pagesUrl: "https://gmaterni.github.io/narnirep/",     githubUrl: "https://github.com/gmaterni/narnirep" },
+      { name: "prodigi",           desc: "",                                  hasPages: true,  pagesUrl: "https://gmaterni.github.io/prodigi/",      githubUrl: "https://github.com/gmaterni/prodigi" },
+      { name: "ragindex",          desc: "Architettura RAG con indicizzazione BM25", hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragindex/", githubUrl: "https://github.com/gmaterni/ragindex" },
+      { name: "ragquery",          desc: "Client RAG con servizio Mistral.ai", hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragquery/",     githubUrl: "https://github.com/gmaterni/ragquery" },
+      { name: "ragtext",           desc: "RAG con Knowledge Base testuale",    hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragtext/",      githubUrl: "https://github.com/gmaterni/ragtext" },
+      { name: "teimed",            desc: "Python per TEI",                     hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed" },
+      { name: "teimed_flori",      desc: "TEIMed con manoscritto Floritmon (txt → xml)", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed_flori" },
+      { name: "teixml2html",       desc: "Trasforma TEI-XML in HTML",          hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teixml2html" },
+      { name: "teixml2html_flori", desc: "Esempio di teixml2html con manoscritti", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teixml2html_flori" },
+      { name: "ula",               desc: "Supporto alla lemmatizzazione",      hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/ula" },
+      { name: "wwwanalyzer",       desc: "",                                   hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/wwwanalyzer" }
     ];
 
     function renderRepos() {
@@ -269,7 +285,7 @@
 
       list.innerHTML = '';
 
-      // Prima quelli con Pages, poi gli altri
+      // Ordinamento: prima quelli con Pages (in ordine alfabetico), poi gli altri
       const sorted = [...repos].sort((a, b) => {
         if (a.hasPages && !b.hasPages) return -1;
         if (!a.hasPages && b.hasPages) return 1;
@@ -280,18 +296,32 @@
         const card = document.createElement('div');
         card.className = 'repo-card';
 
+        // Badge Pages
         const badge = repo.hasPages
-          ? '<span class="badge pages-on">Pages ✓</span>'
-          : '<span class="badge pages-off">Pages ✗</span>';
+          ? '<span class="badge pages-on">Pages \u2713</span>'
+          : '<span class="badge pages-off">Pages \u2717</span>';
 
+        // Nome repository
         const nameDiv = document.createElement('div');
         nameDiv.className = 'repo-name';
         nameDiv.innerHTML = `<a href="${repo.githubUrl}" target="_blank" rel="noopener">${repo.name}</a> ${badge}`;
+        card.appendChild(nameDiv);
 
+        // Descrizione (breve presentazione)
+        const descDiv = document.createElement('div');
+        if (repo.desc) {
+          descDiv.className = 'repo-desc';
+          descDiv.textContent = repo.desc;
+        } else {
+          descDiv.className = 'repo-desc empty';
+          descDiv.textContent = 'Nessuna descrizione disponibile';
+        }
+        card.appendChild(descDiv);
+
+        // Link
         const linksDiv = document.createElement('div');
         linksDiv.className = 'repo-links';
 
-        // Link GitHub
         const githubLink = document.createElement('a');
         githubLink.href = repo.githubUrl;
         githubLink.target = '_blank';
@@ -300,7 +330,6 @@
         githubLink.textContent = 'GitHub';
         linksDiv.appendChild(githubLink);
 
-        // Link GitHub Pages (se presente)
         if (repo.hasPages && repo.pagesUrl) {
           const pagesLink = document.createElement('a');
           pagesLink.href = repo.pagesUrl;
@@ -316,7 +345,6 @@
           linksDiv.appendChild(noPages);
         }
 
-        card.appendChild(nameDiv);
         card.appendChild(linksDiv);
         list.appendChild(card);
       });
