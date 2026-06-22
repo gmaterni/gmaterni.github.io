@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giuseppe Materni</title>
+  <style>
+    /* Dark Material Design */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #121212;
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Card in stile Material */
+    .card {
+      background: #1e1e1e;
+      border-radius: 16px;
+      padding: 40px 40px 32px;
+      max-width: 520px;
+      width: 90%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+                  0 2px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6),
+                  0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Foto centrale */
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #bb86fc;
+      box-shadow: 0 4px 20px rgba(187, 134, 252, 0.3);
+      margin-bottom: 24px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-img:hover {
+      border-color: #ce93d8;
+      box-shadow: 0 4px 28px rgba(187, 134, 252, 0.5);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #bb86fc;
+      font-weight: 400;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: #bb86fc;
+      border-radius: 2px;
+      margin: 0 auto 24px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #b0b0b0;
+      margin-bottom: 24px;
+    }
+
+    /* Pulsante Material */
+    .btn {
+      display: inline-block;
+      background: #bb86fc;
+      color: #121212;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 32px;
+      border-radius: 28px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(187, 134, 252, 0.3);
+    }
+
+    .btn:hover {
+      background: #ce93d8;
+      transform: scale(1.04);
+      box-shadow: 0 6px 20px rgba(187, 134, 252, 0.4);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .footer a {
+      color: #bb86fc;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .card {
+        padding: 28px 20px;
+      }
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="mantellogt.jpg" alt="Giuseppe Materni" class="profile-img">
+
+    <h1>Giuseppe Materni</h1>
+    <div class="subtitle">gmaterni</div>
+    <div class="divider"></div>
+
+    <p>
+      Benvenuto nella mia pagina personale su GitHub Pages.
+      <br>
+      Sviluppatore, creativo, appassionato di tecnologia.
+    </p>
+
+    <a href="https://github.com/gmaterni" class="btn" target="_blank" rel="noopener">
+      GitHub
+    </a>
+  </div>
+
+  <div class="footer">
+    <a href="https://gmaterni.github.io/">gmaterni.github.io</a> &mdash; powered by GitHub Pages
+  </div>
+
+</body>
+</html>
