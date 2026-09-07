@@ -1,4 +1,5 @@
-.pi/
+*.py
+AGENTS.md
 link.txt/
 bin/
 **/log

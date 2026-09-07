@@ -258,21 +258,20 @@
   <script>
     // Lista dei repository con i dati raccolti da GitHub
     const repos = [
-      { name: "ct30",              desc: "",                                   hasPages: true,  pagesUrl: "https://gmaterni.github.io/ct30/",         githubUrl: "https://github.com/gmaterni/ct30" },
-      { name: "gmaterni.github.io", desc: "",                                 hasPages: true,  pagesUrl: "https://gmaterni.github.io/",              githubUrl: "https://github.com/gmaterni/gmaterni.github.io" },
-      { name: "hub",               desc: "",                                  hasPages: true,  pagesUrl: "https://gmaterni.github.io/hub/",          githubUrl: "https://github.com/gmaterni/hub" },
-      { name: "ipotesi",           desc: "Periodico",                         hasPages: true,  pagesUrl: "https://gmaterni.github.io/ipotesi/",      githubUrl: "https://github.com/gmaterni/ipotesi" },
-      { name: "narnirep",          desc: "Atti del Comune di Narni",          hasPages: true,  pagesUrl: "https://gmaterni.github.io/narnirep/",     githubUrl: "https://github.com/gmaterni/narnirep" },
-      { name: "prodigi",           desc: "",                                  hasPages: true,  pagesUrl: "https://gmaterni.github.io/prodigi/",      githubUrl: "https://github.com/gmaterni/prodigi" },
-      { name: "ragindex",          desc: "Architettura RAG con indicizzazione BM25", hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragindex/", githubUrl: "https://github.com/gmaterni/ragindex" },
-      { name: "ragquery",          desc: "Client RAG con servizio Mistral.ai", hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragquery/",     githubUrl: "https://github.com/gmaterni/ragquery" },
-      { name: "ragtext",           desc: "RAG con Knowledge Base testuale",    hasPages: true,  pagesUrl: "https://gmaterni.github.io/ragtext/",      githubUrl: "https://github.com/gmaterni/ragtext" },
-      { name: "teimed",            desc: "Python per TEI",                     hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed" },
-      { name: "teimed_flori",      desc: "TEIMed con manoscritto Floritmon (txt → xml)", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed_flori" },
-      { name: "teixml2html",       desc: "Trasforma TEI-XML in HTML",          hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teixml2html" },
+      { name: "agnochat", desc: "", hasPages: true, pagesUrl: "https://gmaterni.github.io/agnochat/", githubUrl: "https://github.com/gmaterni/agnochat" },
+      { name: "ct30", desc: "", hasPages: true, pagesUrl: "https://gmaterni.github.io/ct30/", githubUrl: "https://github.com/gmaterni/ct30" },
+      { name: "gmaterni.github.io", desc: "", hasPages: true, pagesUrl: "https://gmaterni.github.io/", githubUrl: "https://github.com/gmaterni/gmaterni.github.io" },
+      { name: "hub", desc: "", hasPages: true, pagesUrl: "https://gmaterni.github.io/hub/", githubUrl: "https://github.com/gmaterni/hub" },
+      { name: "ipotesi", desc: "Periodico", hasPages: true, pagesUrl: "https://gmaterni.github.io/ipotesi/", githubUrl: "https://github.com/gmaterni/ipotesi" },
+      { name: "narnirep", desc: "Atti del Comune di Narni", hasPages: true, pagesUrl: "https://gmaterni.github.io/narnirep/", githubUrl: "https://github.com/gmaterni/narnirep" },
+      { name: "prodigi", desc: "", hasPages: true, pagesUrl: "https://gmaterni.github.io/prodigi/", githubUrl: "https://github.com/gmaterni/prodigi" },
+      { name: "ragindex", desc: "Architettura RAG con indicizzazione BM25", hasPages: true, pagesUrl: "https://gmaterni.github.io/ragindex/", githubUrl: "https://github.com/gmaterni/ragindex" },
+      { name: "teimed", desc: "Python per TEI", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed" },
+      { name: "teimed_flori", desc: "TEIMed con manoscritto Floritmon (txt → xml)", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teimed_flori" },
+      { name: "teixml2html", desc: "Trasforma TEI-XML in HTML", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teixml2html" },
       { name: "teixml2html_flori", desc: "Esempio di teixml2html con manoscritti", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/teixml2html_flori" },
-      { name: "ula",               desc: "Supporto alla lemmatizzazione",      hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/ula" },
-      { name: "wwwanalyzer",       desc: "",                                   hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/wwwanalyzer" }
+      { name: "ula", desc: "Supporto alla lemmatizzazione", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/ula" },
+      { name: "wwwanalyzer", desc: "", hasPages: false, pagesUrl: null, githubUrl: "https://github.com/gmaterni/wwwanalyzer" },
     ];
 
     function renderRepos() {
